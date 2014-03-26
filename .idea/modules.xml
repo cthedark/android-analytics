@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/android_analytics.iml" filepath="$PROJECT_DIR$/android_analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_analytics/android_analytics-android_analytics.iml" filepath="$PROJECT_DIR$/android_analytics/android_analytics-android_analytics.iml" />
+    </modules>
+  </component>
+</project>
+
