@@ -48,6 +48,7 @@ public class HomeActivity extends Activity {
     @Override
     public void onStart() {
         super.onStart();
+        MyApp.getAnalytics().enterScreen(SCREEN_LABEL, this);
         MyApp.getAnalytics().logScreen(SCREEN_LABEL, this);
     }
 
