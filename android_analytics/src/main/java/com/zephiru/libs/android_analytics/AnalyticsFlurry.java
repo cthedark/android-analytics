@@ -6,6 +6,9 @@ package com.zephiru.libs.android_analytics;
 import android.app.Activity;
 
 import com.flurry.android.*;
+
+import java.util.HashMap;
+
 public class AnalyticsFlurry implements AnalyticsInterface {
 
     private String mFlurryKey;
@@ -26,15 +29,25 @@ public class AnalyticsFlurry implements AnalyticsInterface {
 
 
     public void logEvent(String eventName){
-        this.logEvent(eventName, null, null, null);
-
-    }
-    public void logEvent(String eventName, String category, String label ){
-
+        FlurryAgent.logEvent(eventName);
     }
 
-    public void logEvent(String eventName, String category, String label, Long value ){
+    public void logEvent(String eventName, final String category, final String label ){
+        FlurryAgent.logEvent(eventName, new HashMap<String,String>(){{
+            put("Category", category);
+            put("Label", label);
+        }});
     }
+
+    public void logEvent(String eventName, final String category, final String label,
+                         final Long value ){
+        FlurryAgent.logEvent(eventName, new HashMap<String,String>(){{
+            put("Category", category);
+            put("Label", label);
+            put("Value", value.toString());
+        }});
+    }
+
     public void logError(String error, String message, Throwable exc){
         FlurryAgent.onError(error, message, exc);
     }
