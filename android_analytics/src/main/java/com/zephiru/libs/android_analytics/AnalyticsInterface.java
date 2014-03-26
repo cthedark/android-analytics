@@ -9,6 +9,8 @@ public interface AnalyticsInterface {
 
     public void logScreen(String screenName, Activity activity);
 
+    public void enterScreen(String screenName, Activity activity);
+
     public void exitScreen(String screenName, Activity activity);
 
     public void logEvent(String eventName);

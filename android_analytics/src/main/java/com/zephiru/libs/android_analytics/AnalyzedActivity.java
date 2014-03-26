@@ -25,6 +25,7 @@ public class AnalyzedActivity extends Activity{
     public void onStart(){
         super.onStart();
         if (mAnalyticsReady){
+            mAndroidAnalytics.enterScreen(mScreenName, this);
             mAndroidAnalytics.logScreen(mScreenName, this);
         }
     }

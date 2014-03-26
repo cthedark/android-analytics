@@ -27,6 +27,10 @@ public class AnalyticsGA implements AnalyticsInterface{
         // Nothing to do with the activity here
     }
 
+    public void enterScreen(String screenName, Activity activity) {
+        // Nothing to do here
+    }
+
     public void exitScreen(String screenName, Activity activity){
         // Nothing to do here
     }

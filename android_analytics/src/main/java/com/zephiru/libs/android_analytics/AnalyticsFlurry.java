@@ -19,9 +19,12 @@ public class AnalyticsFlurry implements AnalyticsInterface {
     }
 
     public void logScreen(String screenName, Activity activity){
+        FlurryAgent.logEvent("Screen - ".concat(screenName));
+    }
+
+    public void enterScreen(String screenName, Activity activity) {
         // For Android, session is per activity, not per application like iOS or WP8...
         FlurryAgent.onStartSession(activity, mFlurryKey);
-        FlurryAgent.logEvent("Screen - ".concat(screenName));
     }
 
     public void exitScreen(String screenName, Activity activity) {

@@ -35,6 +35,12 @@ public class AndroidAnalytics implements AnalyticsInterface{
         }
     }
 
+    public void enterScreen(String screenName, Activity activity){
+        for (AnalyticsInterface analyticsInterface : mAnalyticsList) {
+            analyticsInterface.enterScreen(screenName, activity);
+        }
+    }
+
     public void exitScreen(String screenName, Activity activity){
         for (AnalyticsInterface analyticsInterface : mAnalyticsList) {
             analyticsInterface.exitScreen(screenName, activity);
