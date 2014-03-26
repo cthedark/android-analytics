@@ -46,13 +46,13 @@ public class HomeActivity extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        MyApp.getAnalytics().logScreen(this, SCREEN_LABEL);
+        MyApp.getAnalytics().logScreen(SCREEN_LABEL, this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        MyApp.getAnalytics().exitScreen(this, SCREEN_LABEL);
+        MyApp.getAnalytics().exitScreen(SCREEN_LABEL, this);
     }
 }
 
