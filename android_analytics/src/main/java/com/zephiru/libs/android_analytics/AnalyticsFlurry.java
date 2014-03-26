@@ -13,8 +13,9 @@ public class AnalyticsFlurry implements AnalyticsInterface {
 
     private String mFlurryKey;
 
-    public AnalyticsFlurry(String flurry_key){
+    public AnalyticsFlurry(String flurry_key, boolean log_enabled){
         mFlurryKey = flurry_key;
+        FlurryAgent.setLogEnabled(log_enabled);
     }
 
     public void logScreen(String screenName, Activity activity){

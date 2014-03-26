@@ -12,13 +12,11 @@ public class AnalyticsGA implements AnalyticsInterface{
     private Tracker mTracker;
     private GoogleAnalytics mGA;
 
-    private static final Logger.LogLevel LOG_LEVEL = Logger.LogLevel.INFO;
-
-    public AnalyticsGA(Context cxt, String tracking_id, boolean dry){
+    public AnalyticsGA(Context cxt, String tracking_id, boolean dry, Logger.LogLevel log_level){
         mGA = GoogleAnalytics.getInstance(cxt);
         mTracker = mGA.getTracker(tracking_id);
         mGA.setDryRun(dry);
-        mGA.getLogger().setLogLevel(LOG_LEVEL);
+        mGA.getLogger().setLogLevel(log_level);
     }
 
 

@@ -2,7 +2,7 @@ package com.zephiru.libs.android_analytics;
 
 import android.app.Activity;
 import android.content.Context;
-
+import com.google.analytics.tracking.android.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +13,19 @@ public class AndroidAnalytics implements AnalyticsInterface{
 
     List<AnalyticsInterface> mAnalyticsList;
 
+    private static final boolean GA_DRY = false; // Set this to true if you want GA to not send data
+    private static final Logger.LogLevel GA_LOG_LEVEL = Logger.LogLevel.INFO; // GA log level
+    private static final boolean FLURRY_LOG_ENABLED = true; // flurry internal logging
+
     public AndroidAnalytics(Context cxt, String ga_tracking_id, String flurry_key){
         mAnalyticsList = new ArrayList<AnalyticsInterface>();
 
         if(ga_tracking_id != null){
-            mAnalyticsList.add(new AnalyticsGA(cxt, ga_tracking_id, true));
+            mAnalyticsList.add(new AnalyticsGA(cxt, ga_tracking_id, GA_DRY, GA_LOG_LEVEL));
         }
 
         if(flurry_key != null){
-            mAnalyticsList.add(new AnalyticsFlurry(flurry_key));
+            mAnalyticsList.add(new AnalyticsFlurry(flurry_key, FLURRY_LOG_ENABLED));
         }
     }
 
