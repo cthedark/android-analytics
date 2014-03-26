@@ -1,10 +1,12 @@
 # Android-Analytics
 
-Self explanatory isn't it? It's a wrapper around various analytics tools for Android.
+It's a simple wrapper around various analytics tools for Android.
 Currently only supports Google Analytics and Flurry with limited functionality.
 
 
 ## How to Use
+
+You can either build this to .aar or just copy the classes in the package  and lib/*.jar to your project. I like the latter because you can edit the source files that way. Some settings are constants, and you want to be able to edit them freely.
 
 Initialize by providing the GA tracking id and/or flurry app key at application launch.
 
