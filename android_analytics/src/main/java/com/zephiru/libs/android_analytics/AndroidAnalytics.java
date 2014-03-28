@@ -15,17 +15,25 @@ public class AndroidAnalytics implements AnalyticsInterface{
 
     private static final boolean GA_DRY = false; // Set this to true if you want GA to not send data
     private static final Logger.LogLevel GA_LOG_LEVEL = Logger.LogLevel.INFO; // GA log level
+    
     private static final boolean FLURRY_LOG_ENABLED = true; // flurry internal logging
+    private static final String FLURRY_SCREEN_PREFIX = ""; // prefix to event name when logged as screen
+
+    private AnalyticsGA mAnalyticsGA;
+    private AnalyticsFlurry mAnalyticsFlurry;
 
     public AndroidAnalytics(Context cxt, String ga_tracking_id, String flurry_key){
         mAnalyticsList = new ArrayList<AnalyticsInterface>();
 
         if(ga_tracking_id != null){
-            mAnalyticsList.add(new AnalyticsGA(cxt, ga_tracking_id, GA_DRY, GA_LOG_LEVEL));
+            mAnalyticsGA = new AnalyticsGA(cxt, ga_tracking_id, GA_DRY, GA_LOG_LEVEL);
+            mAnalyticsList.add(mAnalyticsGA);
         }
 
         if(flurry_key != null){
-            mAnalyticsList.add(new AnalyticsFlurry(flurry_key, FLURRY_LOG_ENABLED));
+            mAnalyticsFlurry = new AnalyticsFlurry(flurry_key, FLURRY_LOG_ENABLED);
+            mAnalyticsFlurry.setScreenPrefix(FLURRY_SCREEN_PREFIX);
+            mAnalyticsList.add(mAnalyticsFlurry);
         }
     }
 

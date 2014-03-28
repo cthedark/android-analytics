@@ -12,14 +12,19 @@ import java.util.HashMap;
 public class AnalyticsFlurry implements AnalyticsInterface {
 
     private String mFlurryKey;
+    private String mScreenPrefix = "Screen - ";
 
     public AnalyticsFlurry(String flurry_key, boolean log_enabled){
         mFlurryKey = flurry_key;
         FlurryAgent.setLogEnabled(log_enabled);
     }
 
+    public void setScreenPrefix(String sp){
+        mScreenPrefix = sp;
+    }
+
     public void logScreen(String screenName, Activity activity){
-        FlurryAgent.logEvent("Screen - ".concat(screenName));
+        FlurryAgent.logEvent(mScreenPrefix.concat(screenName));
     }
 
     public void enterScreen(String screenName, Activity activity) {

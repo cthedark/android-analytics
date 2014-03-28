@@ -13,6 +13,7 @@ public class AnalyzedActivity extends Activity{
     private AndroidAnalytics mAndroidAnalytics;
     private boolean mAnalyticsReady = false;
 
+    public AndroidAnalytics getAndroidAnalytics(){return mAndroidAnalytics;}
 
     // This method has to be called in onLaunch! Or it won't do shit.
     public void setAnalyticsSettings(String screen_name, AndroidAnalytics aa){
